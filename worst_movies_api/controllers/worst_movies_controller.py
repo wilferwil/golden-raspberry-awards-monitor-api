@@ -11,8 +11,8 @@ class WorstMoviesController:
         gra_movies = self.prepare_movies_data(gra_movies)
         gra_movies = self.calculate_year_range_between_win(gra_movies)
 
-        shortest_gra = gra_movies.nsmallest(2, 'interval').to_dict('records')
-        longest_gra = gra_movies.nlargest(2, 'interval').to_dict('records')
+        shortest_gra = gra_movies.nsmallest(1, 'interval').to_dict('records')
+        longest_gra = gra_movies.nlargest(1, 'interval').to_dict('records')
 
         return self.summarize_winner_overview(shortest_gra, longest_gra)
 
